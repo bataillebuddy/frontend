@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@draco/api-client": ["libs/shared/api-client/src/index.ts"],
+      "@draco/domains/users": ["libs/domains/users/src/index.ts"],
+      "@draco/interfaces": ["libs/shared/interfaces/src/index.ts"],
+      "@draco/store": ["libs/state/store/src/index.ts"],
+      "@nx-standalone-react/pages-login": ["libs/pages/login/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

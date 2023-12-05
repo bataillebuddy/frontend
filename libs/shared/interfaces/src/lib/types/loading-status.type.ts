@@ -1,0 +1,1 @@
+export type LoadingStatus = 'not loaded' | 'loaded' | 'error' | undefined

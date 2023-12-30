@@ -19,7 +19,9 @@
       "@draco/domains/users": ["libs/domains/users/src/index.ts"],
       "@draco/interfaces": ["libs/shared/interfaces/src/index.ts"],
       "@draco/store": ["libs/state/store/src/index.ts"],
-      "@nx-standalone-react/pages-login": ["libs/pages/login/src/index.ts"]
+      "@draco/pages/layout": ["libs/pages/layout/src/index.ts"],
+      "@draco/pages/login": ["libs/pages/login/src/index.ts"],
+      "@draco/routes": ["libs/shared/routes/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

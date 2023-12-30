@@ -1,34 +1,37 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.scss';
-
-import NxWelcome from './nx-welcome';
-import {useDispatch, useSelector} from "react-redux";
-import {AppDispatch, RootState} from "@draco/store";
-import {useEffect} from "react";
-import {fetchUser} from "@draco/domains/users";
+import {Route, Routes} from 'react-router'
+import {ROUTER} from './main.router'
+import {Layout} from '@draco/pages/layout'
 
 export function App() {
-  const dispatch = useDispatch<AppDispatch>()
-
-  const user = useSelector((rootState: RootState) => rootState.user)
-
-  useEffect(() => {
-    console.log(user)
-  }, [user]);
-
-  useEffect(() => {
-    dispatch(fetchUser())
-  }, [dispatch])
-
   return (
-    <div className="bg-red-500">
-      Coucou
-
-      { user.isAuthenticated ? (
-        <div>Vous êtes connecté</div>
-      ) : (
-        <div>Fils de pute connectes toi</div>
-      )}
+    <div className="text-white">
+      <Routes>
+        { ROUTER.map((route) =>
+          route.layout ? (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={
+                !route.protected ? (
+                  <>
+                    <Layout>{ route.component }</Layout>
+                  </>
+                ) : (
+                  <>
+                    <Layout>{ route.component }</Layout>
+                  </>
+                )
+              }
+            />
+          ) : (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={!route.protected ? route.component : <>{ route.component }</>}
+            />
+          )
+        )}
+      </Routes>
     </div>
   );
 }
